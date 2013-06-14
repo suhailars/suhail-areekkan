@@ -1,0 +1,6 @@
+import os
+def listdir(d):
+    f=os.listdir(d)
+    for i in f:
+     print i
+listdir('chap1') 
