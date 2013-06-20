@@ -1,8 +1,9 @@
 import time
-
-def fun(x):
-      x=x*x
-      print x
+def fib(n):
+    if n is 0 or n is 1:
+        return 1
+    else:
+        return fib(n-1) + fib(n-2)
 
 def profile(f):
     cache={}
@@ -12,8 +13,8 @@ def profile(f):
       start = time.time()
       cache[x]=f(x)    
       tim=time.time()-start
-     return tim 
+     return str(tim)+' sec' 
     return g
-f= profile(fun)
-print f(4)
+f= profile(fib)
+print f(20)
     
