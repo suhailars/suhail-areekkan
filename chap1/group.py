@@ -1,26 +1,28 @@
 import sys
-def group(lis,n):
-    t=0
+import ast
+
+def group(lis,n,t=[]):
     s=[]
     k=len(lis)
-    
-    
-   
     for i in lis[:n]:
        if lis.index(i) == k-1:
           s.append(i)
-          print s
+          t.append(s)
+          print t
           sys.exit(0) 
        else:
           s.append(i)
        
-    print s
-            
+    t.append(s) 
     lis=lis[n:]
-    group(lis,n) 
+    group(lis,n,t) 
 
+def readlist(x):
+     x=ast.literal_eval(x)
+     return x 
+     
+       
+x=readlist(sys.argv[1])
+#print x
 
-
-
-#print a
-group(sys.argv[1],3)           
+group(x,int(sys.argv[2]))           
